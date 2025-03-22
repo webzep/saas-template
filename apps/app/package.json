@@ -1,0 +1,44 @@
+{
+	"name": "app",
+	"private": true,
+	"description": "The web app for the project",
+	"version": "0.0.0",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"format": "biome check . --write --diagnostic-level=error && prettier --write '**/*.svelte'",
+		"lint": "biome check . --diagnostic-level=error && eslint '**/*.svelte' --quiet && prettier --check '**/*.svelte'",
+		"dcu": "docker-compose -f ./docker/docker-compose.dev.yml up -d",
+		"dcd": "docker-compose -f ./docker/docker-compose.dev.yml down",
+		"dcb": "docker-compose -f ./docker/docker-compose.dev.yml build",
+		"restart": "npm run dcd && npm run dcb && npm run dcu",
+		"stripe:local": "stripe listen --forward-to http://localhost:5100/api/webhooks/stripe"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "4.0.0",
+		"@sveltejs/kit": "2.19.0",
+		"@sveltejs/vite-plugin-svelte": "5.0.3",
+		"svelte": "5.23.0",
+		"svelte-check": "4.1.5",
+		"typescript": "5.8.2",
+		"typescript-eslint": "8.26.1",
+		"vite": "6.2.1"
+	},
+	"dependencies": {
+		"@auth/sveltekit": "1.8.0",
+		"@phosphor-icons/web": "2.1.1",
+		"@repo/config": "*",
+		"@repo/pricing": "*",
+		"@repo/firebase": "*",
+		"@repo/ui": "*",
+		"@trpc/client": "10.45.2",
+		"@trpc/server": "10.45.2",
+		"stripe": "17.7.0",
+		"trpc-sveltekit": "3.6.3",
+		"zod": "3.24.2"
+	},
+	"type": "module"
+}

@@ -1,0 +1,9 @@
+services:
+  web-production:
+    build:
+      context: ../../..
+      dockerfile: apps/web/docker/Dockerfile.prod
+    container_name: web-production
+    restart: always
+    expose:
+      - '5101'

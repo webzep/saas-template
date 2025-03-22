@@ -1,0 +1,30 @@
+{
+	"name": "@repo/firebase",
+	"version": "0.0.0",
+	"type": "module",
+	"module": "src/index.ts",
+	"main": "src/index.ts",
+	"exports": {
+		".": {
+			"types": "./src/index.ts",
+			"svelte": "./src/index.ts"
+		}
+	},
+	"scripts": {
+		"format": "biome check . --write --diagnostic-level=error",
+		"lint": "biome check . --diagnostic-level=error"
+	},
+	"devDependencies": {
+		"typescript": "5.8.2",
+		"typescript-eslint": "8.26.1",
+		"@sveltejs/adapter-auto": "4.0.0",
+		"@sveltejs/kit": "2.19.0",
+		"@sveltejs/vite-plugin-svelte": "5.0.3",
+		"svelte": "5.23.0"
+	},
+	"dependencies": {
+		"@repo/schemas": "*",
+		"firebase-admin": "13.2.0",
+		"dotenv": "16.4.7"
+	}
+}

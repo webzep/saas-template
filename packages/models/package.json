@@ -1,0 +1,26 @@
+{
+	"name": "@repo/models",
+	"version": "0.0.0",
+	"type": "module",
+	"module": "src/index.ts",
+	"main": "src/index.ts",
+	"exports": {
+		".": {
+			"types": "./src/index.ts",
+			"svelte": "./src/index.ts"
+		}
+	},
+	"scripts": {
+		"format": "biome check . --write --diagnostic-level=error",
+		"lint": "biome check . --diagnostic-level=error"
+	},
+	"devDependencies": {
+		"typescript": "5.8.2",
+		"typescript-eslint": "8.26.1"
+	},
+	"dependencies": {
+		"@repo/schemas": "*",
+		"@repo/firebase": "*",
+		"zod": "3.24.2"
+	}
+}

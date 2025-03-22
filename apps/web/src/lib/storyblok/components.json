@@ -1,0 +1,156 @@
+{
+	"components": [
+		{
+			"name": "author",
+			"display_name": null,
+			"description": "",
+			"created_at": "2025-03-11T02:51:35.956Z",
+			"updated_at": "2025-03-11T02:52:05.639Z",
+			"id": 15221,
+			"schema": {
+				"name": {
+					"type": "text",
+					"pos": 0,
+					"id": "7p9N_jJcTECknX4CM-RnjQ"
+				},
+				"occupation": {
+					"type": "text",
+					"pos": 1,
+					"id": "lMxrHWHASPKiDYWAhtnqjw"
+				},
+				"avatar": {
+					"type": "asset",
+					"pos": 2,
+					"id": "w2feU4FgRbiDum6SRHdZrg"
+				}
+			},
+			"image": null,
+			"preview_field": null,
+			"is_root": true,
+			"preview_tmpl": null,
+			"is_nestable": true,
+			"all_presets": [],
+			"preset_id": null,
+			"real_name": "author",
+			"component_group_uuid": "all",
+			"color": null,
+			"icon": null,
+			"internal_tags_list": [],
+			"internal_tag_ids": [],
+			"content_type_asset_preview": null,
+			"component_group_name": ""
+		},
+		{
+			"name": "blog_content",
+			"display_name": null,
+			"description": "",
+			"created_at": "2025-03-11T02:49:09.577Z",
+			"updated_at": "2025-03-11T02:49:54.998Z",
+			"id": 15220,
+			"schema": {
+				"content": {
+					"type": "richtext",
+					"pos": 0,
+					"id": "0c9wtDzGSg2jzE7JLv9jCg"
+				}
+			},
+			"image": null,
+			"preview_field": null,
+			"is_root": false,
+			"preview_tmpl": null,
+			"is_nestable": true,
+			"all_presets": [],
+			"preset_id": null,
+			"real_name": "blog_content",
+			"component_group_uuid": "all",
+			"color": null,
+			"icon": null,
+			"internal_tags_list": [],
+			"internal_tag_ids": [],
+			"content_type_asset_preview": null,
+			"component_group_name": ""
+		},
+		{
+			"name": "blog_header",
+			"display_name": null,
+			"description": "Blog Header",
+			"created_at": "2025-03-11T02:45:32.590Z",
+			"updated_at": "2025-03-11T02:56:24.356Z",
+			"id": 15219,
+			"schema": {
+				"title": {
+					"type": "text",
+					"pos": 0,
+					"id": "k_IsJqbvQHC0-6jFJUqSkQ"
+				},
+				"description": {
+					"type": "text",
+					"pos": 1,
+					"id": "S6v-5kRGS4ephdU3MVIgoQ"
+				},
+				"authors": {
+					"type": "options",
+					"pos": 2,
+					"is_reference_type": true,
+					"source": "internal_stories",
+					"entry_appearance": "card",
+					"allow_advanced_search": true,
+					"display_name": "Authors",
+					"id": "bltM3pBPRZiZl13sDna9Fw",
+					"folder_slug": "authors/",
+					"filter_content_type": []
+				},
+				"image": {
+					"type": "asset",
+					"pos": 3,
+					"display_name": "Image",
+					"id": "wN_NIBxcRD68Rxbm_brC_A"
+				}
+			},
+			"image": null,
+			"preview_field": null,
+			"is_root": false,
+			"preview_tmpl": null,
+			"is_nestable": true,
+			"all_presets": [],
+			"preset_id": null,
+			"real_name": "blog_header",
+			"component_group_uuid": "all",
+			"color": null,
+			"icon": null,
+			"internal_tags_list": [],
+			"internal_tag_ids": [],
+			"content_type_asset_preview": null,
+			"component_group_name": ""
+		},
+		{
+			"name": "page",
+			"display_name": null,
+			"description": null,
+			"created_at": "2025-03-09T21:18:21.385Z",
+			"updated_at": "2025-03-09T21:18:21.385Z",
+			"id": 15145,
+			"schema": {
+				"body": {
+					"type": "bloks",
+					"id": "whCcrhS7TJKY-dC0FRkpKQ"
+				}
+			},
+			"image": null,
+			"preview_field": null,
+			"is_root": true,
+			"preview_tmpl": null,
+			"is_nestable": false,
+			"all_presets": [],
+			"preset_id": null,
+			"real_name": "page",
+			"component_group_uuid": null,
+			"color": null,
+			"icon": null,
+			"internal_tags_list": [],
+			"internal_tag_ids": [],
+			"content_type_asset_preview": null
+		}
+	],
+	"component_groups": []
+}

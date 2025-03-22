@@ -1,0 +1,43 @@
+{
+	"name": "web",
+	"version": "0.0.0",
+	"private": true,
+	"description": "The website landing page",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"format": "biome check . --write --diagnostic-level=error && prettier --write '**/*.svelte'",
+		"lint": "biome check . --diagnostic-level=error && eslint '**/*.svelte' --quiet && prettier --check '**/*.svelte'",
+		"dcu": "docker-compose -f docker/docker-compose.dev.yml up -d",
+		"dcd": "docker-compose -f docker/docker-compose.dev.yml down",
+		"dcb": "docker-compose -f docker/docker-compose.dev.yml build",
+		"restart": "npm run dcd && npm run dcb && npm run dcu",
+		"sb:sync": "storyblok pull-components --space=3001016 && npx -y storyblok-generate-ts source=./components.3001016.json target=./src/types/storyblok && rm ./components.3001016.json",
+		"sb:push": "storyblok push-components --space=3001016 ./src/lib/storyblok/components.json"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "4.0.0",
+		"@sveltejs/kit": "2.19.0",
+		"@sveltejs/vite-plugin-svelte": "5.0.3",
+		"svelte": "5.23.0",
+		"svelte-check": "4.1.5",
+		"typescript": "5.8.2",
+		"typescript-eslint": "8.26.0",
+		"vite": "6.2.1"
+	},
+	"dependencies": {
+		"@auth/sveltekit": "1.8.0",
+		"@phosphor-icons/web": "2.1.1",
+		"@repo/config": "*",
+		"@repo/pricing": "*",
+		"@repo/ui": "*",
+		"@repo/firebase": "*",
+		"@repo/models": "*",
+		"@storyblok/svelte": "4.0.11",
+		"@vitejs/plugin-basic-ssl": "2.0.0"
+	},
+	"type": "module"
+}

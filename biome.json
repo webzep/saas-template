@@ -1,0 +1,102 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	},
+	"files": {
+		"ignoreUnknown": false,
+		"ignore": ["**/*.svelte"]
+	},
+	"formatter": { "enabled": true, "indentStyle": "tab", "indentWidth": 2, "lineWidth": 100 },
+	"organizeImports": { "enabled": true },
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "double",
+			"indentWidth": 2,
+			"trailingCommas": "none"
+		}
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"style": {
+				"noArguments": "warn",
+				"noCommaOperator": "warn",
+				"noInferrableTypes": "off",
+				"noNonNullAssertion": "warn",
+				"noParameterAssign": "off",
+				"noUnusedTemplateLiteral": "warn",
+				"noUselessElse": "info",
+				"noVar": "warn",
+				"useDefaultParameterLast": "warn",
+				"useExponentiationOperator": "off",
+				"useNumberNamespace": "warn",
+				"useSelfClosingElements": "off",
+				"useSingleVarDeclarator": "off",
+				"useTemplate": "info"
+			},
+			"complexity": {
+				"noForEach": "off",
+				"noStaticOnlyClass": "info",
+				"noThisInStatic": "warn",
+				"noUselessConstructor": "warn",
+				"noUselessFragments": "info",
+				"noUselessSwitchCase": "off",
+				"noUselessTernary": "info",
+				"useArrowFunction": "off",
+				"useFlatMap": "info",
+				"useLiteralKeys": "warn",
+				"useOptionalChain": "warn"
+			},
+			"suspicious": {
+				"noApproximativeNumericConstant": "off",
+				"noArrayIndexKey": "warn",
+				"noAssignInExpressions": "warn",
+				"noConfusingVoidType": "warn",
+				"noEmptyBlock": "warn",
+				"noExplicitAny": "warn",
+				"noGlobalIsNan": "warn",
+				"noImplicitAnyLet": "warn",
+				"noShadowRestrictedNames": "warn",
+				"noThenProperty": "off"
+			},
+			"performance": {
+				"noAccumulatingSpread": "warn",
+				"noDelete": "info"
+			},
+			"correctness": {
+				"noInnerDeclarations": "info",
+				"noSelfAssign": "warn",
+				"noUnnecessaryContinue": "info",
+				"useExhaustiveDependencies": "info",
+				"useJsxKeyInIterable": "warn"
+			},
+			"a11y": {
+				"noSvgWithoutTitle": "info",
+				"useAltText": "warn",
+				"useButtonType": "info",
+				"useMediaCaption": "off",
+				"useSemanticElements": "info",
+				"useValidAnchor": "info"
+			},
+			"security": {
+				"noDangerouslySetInnerHtml": "warn"
+			}
+		}
+	},
+	"overrides": [
+		{
+			"include": ["*.spec.ts", "*.test.ts", "*.d.ts"],
+			"linter": {
+				"rules": {
+					"suspicious": {
+						"noExplicitAny": "warn"
+					}
+				}
+			}
+		}
+	]
+}
