@@ -27,4 +27,6 @@ export { default as TwoColumnLayout } from "./components/TwoColumnLayout.svelte"
 export { snackbar } from "./components/snackbar";
 export { tooltip } from "./components/tooltip";
 
+export * from "./branding";
+
 export type * from "./components/types";

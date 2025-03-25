@@ -1,6 +1,6 @@
 import Blog from "@/lib/storyblok/ui/SbBlog.svelte";
 import Page from "@/lib/storyblok/ui/SbPage.svelte";
-import { getWebsiteEnv } from "@repo/config";
+import { getWebsiteEnv } from "@repo/config/website";
 import {
 	type SbSvelteComponentsMap,
 	apiPlugin,

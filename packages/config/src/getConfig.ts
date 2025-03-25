@@ -1,4 +1,6 @@
-import { NODE_ENV } from "$env/static/private";
+import { config } from "dotenv";
+
+config();
 
 export const getConfig = () => {
 	return {
@@ -8,10 +10,10 @@ export const getConfig = () => {
 			steveEmail: "steve@mail.skulltag.app"
 		},
 		mode: {
-			dev: NODE_ENV === "development",
-			prod: NODE_ENV === "production",
-			staging: NODE_ENV === "staging",
-			test: NODE_ENV === "test"
+			dev: process.env.ENVIRONMENT === "development",
+			prod: process.env.ENVIRONMENT === "production",
+			staging: process.env.ENVIRONMENT === "staging",
+			test: process.env.ENVIRONMENT === "test"
 		},
 		social: {
 			facebook: "https://www.facebook.com/skulltag",

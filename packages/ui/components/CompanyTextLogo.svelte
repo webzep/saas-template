@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { Icon } from "@repo/ui"
-
+  import { LogoSVG } from "../branding"
   type Props = {
     dark?: boolean
     small?: boolean
@@ -18,7 +17,7 @@
 
 <span class={containerClasses}>
   <div class="icon-container">
-    <Icon bold color="primary" name="skull" size={iconSize} />
+    <img alt="SkullTag Logo" class="icon" src={LogoSVG} />
   </div>
   <span class={text1Classes}>Skull</span>
   <span class={text2Classes}>Tag</span>
@@ -27,22 +26,30 @@
 <style>
   .icon-container {
     align-items: center;
-    background: white;
+    /* background: white; */
     border-radius: var(--radius-field);
     display: flex;
     justify-content: center;
     margin-right: var(--spacing-2);
     padding: var(--spacing-1);
+    aspect-ratio: 1;
+    max-width: 2.5rem;
+    overflow: hidden;
   }
 
   .container {
     align-items: center;
     display: flex;
-	font-weight: bold;
+    font-weight: bold;
     letter-spacing: 0.05em;
     margin-left: var(--spacing-2);
     margin: var(--spacing-4) 0;
     padding: 0 var(--spacing-4);
+  }
+
+  .icon {
+    width: 100%;
+    height: 100%;
   }
 
   .text-1 {

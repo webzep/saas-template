@@ -6,7 +6,11 @@ services:
     container_name: app-dev
     restart: always
     ports:
-      - '5100:5100'
+      - "5100:5100"
     volumes:
-      - ../:/app
-      - /app/node_modules
+      - ../../..:/mono
+      - /mono/node_modules
+    env_file:
+      - ../.env
+    environment:
+      - NODE_ENV=development

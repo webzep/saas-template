@@ -8,6 +8,7 @@
 	"scripts": {
 		"build": "turbo run build",
 		"dev": "turbo run dev",
+		"prepare": "turbo run prepare",
 		"check-types": "turbo run check-types",
 		"format": "turbo run format",
 		"lint": "turbo run lint",
@@ -22,7 +23,8 @@
 		"prettier": "3.5.3",
 		"prettier-plugin-svelte": "3.3.3",
 		"svelte": "5.23.0",
-		"svelte-check": "4.1.5"
+		"svelte-check": "4.1.5",
+		"vite": "6.2.1"
 	},
 	"packageManager": "yarn@1.22.22",
 	"engines": {

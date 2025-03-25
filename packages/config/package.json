@@ -1,25 +1,36 @@
 {
 	"name": "@repo/config",
 	"version": "0.0.0",
+	"private": true,
 	"type": "module",
-	"module": "src/index.ts",
-	"main": "src/index.ts",
+	"module": "dist/index.js",
+	"main": "dist/index.js",
 	"exports": {
 		".": {
-			"types": "./src/index.ts",
-			"svelte": "./src/index.ts"
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"default": "./dist/index.js"
+		},
+		"./app": {
+			"types": "./dist/app/appEnv.d.ts",
+			"import": "./dist/app/appEnv.js",
+			"default": "./dist/app/appEnv.js"
+		},
+		"./website": {
+			"types": "./dist/web/websiteEnv.d.ts",
+			"import": "./dist/web/websiteEnv.js",
+			"default": "./dist/web/websiteEnv.js"
 		}
 	},
 	"scripts": {
-		"build": "vite build",
+		"build": "tsc --declaration",
 		"format": "biome check . --write --diagnostic-level=error",
 		"lint": "biome check . --diagnostic-level=error"
 	},
 	"devDependencies": {
-		"typescript": "5.8.2",
-		"@sveltejs/adapter-auto": "4.0.0",
-		"@sveltejs/kit": "2.19.0",
-		"@sveltejs/vite-plugin-svelte": "5.0.3",
-		"svelte": "5.23.0"
+		"typescript": "5.8.2"
+	},
+	"dependencies": {
+		"dotenv": "16.4.7"
 	}
 }

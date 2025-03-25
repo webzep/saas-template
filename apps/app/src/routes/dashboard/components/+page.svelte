@@ -69,7 +69,7 @@
   }
 </script>
 
-<main>
+<Flex column gap="md">
   <Card>
     {#snippet header()}
       <h2>Uploader</h2>
@@ -315,4 +315,4 @@
     {/snippet}
     <p>Content with an image at the top and an elevated style.</p>
   </Card>
-</main>
+</Flex>

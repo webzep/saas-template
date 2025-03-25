@@ -1,4 +1,5 @@
-import { getConfig, getWebsiteEnv } from "@repo/config";
+import { getConfig } from "@repo/config";
+import { getWebsiteEnv } from "@repo/config/website";
 import type { LayoutServerLoad } from "./$types";
 
 export const load: LayoutServerLoad = async () => {

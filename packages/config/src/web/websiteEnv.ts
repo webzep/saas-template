@@ -1,6 +1,8 @@
-import { APP_URL, NODE_ENV, STORYBLOK_ACCESS_TOKEN, WEBSITE_URL } from "$env/static/private";
+import { config } from "dotenv";
 
-const websiteEnvKeys = ["APP_URL", "STORYBLOK_ACCESS_TOKEN", "WEBSITE_URL", "NODE_ENV"] as const;
+config();
+
+const websiteEnvKeys = ["APP_URL", "STORYBLOK_ACCESS_TOKEN", "WEBSITE_URL", "ENVIRONMENT"] as const;
 
 type WebsiteEnvKeys = (typeof websiteEnvKeys)[number];
 
@@ -10,10 +12,10 @@ export type WebsiteEnv = {
 
 export const getWebsiteEnv = (): WebsiteEnv => {
 	const env: WebsiteEnv = {
-		APP_URL: APP_URL ?? "",
-		NODE_ENV: NODE_ENV ?? "",
-		STORYBLOK_ACCESS_TOKEN: STORYBLOK_ACCESS_TOKEN ?? "",
-		WEBSITE_URL: WEBSITE_URL ?? ""
+		APP_URL: process.env.APP_URL ?? "",
+		ENVIRONMENT: process.env.ENVIRONMENT ?? "",
+		STORYBLOK_ACCESS_TOKEN: process.env.STORYBLOK_ACCESS_TOKEN ?? "",
+		WEBSITE_URL: process.env.WEBSITE_URL ?? ""
 	};
 
 	const missingKeys = Object.entries(env)

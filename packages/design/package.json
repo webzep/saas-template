@@ -1,5 +1,5 @@
 {
-	"name": "@repo/firebase",
+	"name": "@repo/design",
 	"version": "0.0.0",
 	"private": true,
 	"type": "module",
@@ -10,7 +10,8 @@
 			"types": "./dist/index.d.ts",
 			"import": "./dist/index.js",
 			"default": "./dist/index.js"
-		}
+		},
+		"./app.css": "./src/app.css"
 	},
 	"scripts": {
 		"build": "tsc --declaration",
@@ -20,9 +21,5 @@
 	"devDependencies": {
 		"typescript": "5.8.2",
 		"typescript-eslint": "8.26.1"
-	},
-	"dependencies": {
-		"@repo/schemas": "*",
-		"firebase-admin": "13.2.0"
 	}
 }

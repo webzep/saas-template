@@ -6,16 +6,14 @@ RUN npm install turbo --global
 # Create and switch to /mono directory
 WORKDIR /mono
 
-# Copy over the rest of the files
+# Copy over the entire monorepo
 COPY . .
 
+# Install dependencies
 RUN yarn install --frozen-lockfile
-
-# Build the app
-RUN yarn build
 
 # Expose the port
 EXPOSE 5100
 
-# Start the app
+# Start just the app
 CMD ["yarn", "app", "dev"]

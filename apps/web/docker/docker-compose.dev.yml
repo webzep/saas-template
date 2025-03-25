@@ -6,7 +6,7 @@ services:
     container_name: web-dev
     restart: always
     ports:
-      - '5101:5101'
+      - "5101:5101"
     volumes:
       - ../:/app
       - /app/node_modules

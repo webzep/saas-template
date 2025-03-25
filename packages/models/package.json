@@ -1,16 +1,12 @@
 {
 	"name": "@repo/models",
 	"version": "0.0.0",
+	"private": true,
 	"type": "module",
-	"module": "src/index.ts",
-	"main": "src/index.ts",
-	"exports": {
-		".": {
-			"types": "./src/index.ts",
-			"svelte": "./src/index.ts"
-		}
-	},
+	"module": "dist/index.js",
+	"main": "dist/index.js",
 	"scripts": {
+		"build": "tsc --declaration",
 		"format": "biome check . --write --diagnostic-level=error",
 		"lint": "biome check . --diagnostic-level=error"
 	},

@@ -1,21 +1,50 @@
 FROM node:22-bullseye
 
-# Install turborepo globally with npm
+# Install turbo globally
 RUN npm install turbo --global
 
-# Create and switch to /mono directory
+# Turn telemetry off for turbo
+ENV TURBO_TELEMETRY_DISABLED=1
+
+# Create and switch to monorepo directory
 WORKDIR /mono
 
-# Copy over the rest of the files
+# Copy the entire monorepo
 COPY . .
 
+# Install dependencies
 RUN yarn install --frozen-lockfile
 
+# Run prepare
+RUN yarn prepare
+
+# Build all packages first
+RUN yarn turbo run build --filter=@repo/*
+
+# Build the app with environment variables
+ARG APP_URL
+ARG ENVIRONMENT
+ARG FIREBASE_CLIENT_EMAIL
+ARG FIREBASE_PRIVATE_KEY
+ARG FIREBASE_PROJECT_ID
+ARG FIREBASE_STORAGE_BUCKET
+ARG STORYBLOK_ACCESS_TOKEN
+ARG WEBSITE_URL
+
+ENV APP_URL=$APP_URL
+ENV ENVIRONMENT=$ENVIRONMENT
+ENV FIREBASE_CLIENT_EMAIL=$FIREBASE_CLIENT_EMAIL
+ENV FIREBASE_PRIVATE_KEY=$FIREBASE_PRIVATE_KEY
+ENV FIREBASE_PROJECT_ID=$FIREBASE_PROJECT_ID
+ENV FIREBASE_STORAGE_BUCKET=$FIREBASE_STORAGE_BUCKET
+ENV STORYBLOK_ACCESS_TOKEN=$STORYBLOK_ACCESS_TOKEN
+ENV WEBSITE_URL=$WEBSITE_URL
+
 # Build the app
-RUN yarn build
+RUN yarn web build
 
 # Expose the port
-EXPOSE 5100
+EXPOSE 5101
 
-# Start the website
+# Start the app
 CMD ["yarn", "web", "preview"]

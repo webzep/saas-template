@@ -1,4 +1,4 @@
-import { firestore } from "./firestore";
+import { getFirestoreInstance } from "./firestore";
 import type { DocumentData } from "firebase-admin/firestore";
 import { FieldValue } from "firebase-admin/firestore";
 
@@ -14,6 +14,7 @@ export enum Collection {
 
 export const db = <T>(collection: Collection) => ({
 	async find(id: string) {
+		const firestore = getFirestoreInstance();
 		const doc = await firestore.collection(collection).doc(id).get();
 		if (!doc.exists) throw new Error("Document not found");
 
@@ -23,6 +24,7 @@ export const db = <T>(collection: Collection) => ({
 		return data as T;
 	},
 	async findWhere(field: string, value: string) {
+		const firestore = getFirestoreInstance();
 		const snapshot = await firestore.collection(collection).where(field, "==", value).get();
 		if (snapshot.empty) return [];
 
@@ -30,6 +32,7 @@ export const db = <T>(collection: Collection) => ({
 		return data as T[];
 	},
 	async set<K extends DocumentData>(id: string, data: K) {
+		const firestore = getFirestoreInstance();
 		const now = new Date().toISOString();
 		const documentData = {
 			...data,
@@ -47,6 +50,7 @@ export const db = <T>(collection: Collection) => ({
 		return true;
 	},
 	async update(id: string, data: DeepPartial<T>) {
+		const firestore = getFirestoreInstance();
 		const updateData = {
 			...data,
 			updated_at: new Date().toISOString()
@@ -62,6 +66,7 @@ export const db = <T>(collection: Collection) => ({
 		return true;
 	},
 	async delete(id: string) {
+		const firestore = getFirestoreInstance();
 		await firestore
 			.collection(collection)
 			.doc(id)
@@ -72,12 +77,14 @@ export const db = <T>(collection: Collection) => ({
 		return true;
 	},
 	async deleteField(id: string, field: keyof T) {
+		const firestore = getFirestoreInstance();
 		await firestore
 			.collection(collection)
 			.doc(id)
 			.update({ [field]: FieldValue.delete() });
 	},
 	async createEmpty() {
+		const firestore = getFirestoreInstance();
 		const doc = firestore.collection(collection).doc();
 		return doc.id;
 	}

@@ -1,12 +1,14 @@
 import { sveltekit } from "@sveltejs/kit/vite";
 import { defineConfig } from "vite";
-import basicSsl from "@vitejs/plugin-basic-ssl";
 
 export default defineConfig({
 	server: {
-		host: true,
-		https: true, // TODO Work out the correct typing
+		host: "0.0.0.0",
 		port: 5101
 	},
-	plugins: [sveltekit(), basicSsl()]
+	preview: {
+		allowedHosts: ["skulltag.io"],
+		host: "0.0.0.0"
+	},
+	plugins: [sveltekit()]
 });

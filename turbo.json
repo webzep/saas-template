@@ -3,19 +3,23 @@
 	"tasks": {
 		"build": {
 			"dependsOn": [
+				"prepare",
 				"^build"
 			],
-			"inputs": [
-				"$TURBO_DEFAULT$",
-				".env*"
-			],
 			"outputs": [
-				".svelte-kit/**"
+				"dist/**",
+				".svelte-kit/**",
+				"build/**"
 			]
 		},
 		"lint": {
 			"dependsOn": [
 				"^lint"
+			]
+		},
+		"prepare": {
+			"outputs": [
+				".svelte-kit/**"
 			]
 		},
 		"check-types": {

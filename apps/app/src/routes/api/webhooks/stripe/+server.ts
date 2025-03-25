@@ -1,6 +1,6 @@
 import { json } from "@sveltejs/kit";
 import type { RequestEvent } from "./$types";
-import { getAppEnv } from "@repo/config";
+import { getAppEnv } from "@repo/config/app";
 import { stripe } from "@/lib/services/stripe";
 import type Stripe from "stripe";
 import { priceItems } from "@repo/pricing";

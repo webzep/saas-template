@@ -1,4 +1,4 @@
-import { getAppEnv } from "@repo/config";
+import { getAppEnv } from "@repo/config/app";
 import Stripe from "stripe";
 
 export const stripe = new Stripe(getAppEnv().STRIPE_SECRET_KEY, {
