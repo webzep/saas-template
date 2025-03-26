@@ -40,7 +40,6 @@ const authorizationHandle: Handle = async ({ event, resolve }) => {
 
 const handleTRPC: Handle = createTRPCHandle({ router, createContext });
 
-// Add webhookBypassHandle to the beginning of the sequence
 export const handle: Handle = sequence(
 	webhookBypassHandle,
 	authenticationHandle,

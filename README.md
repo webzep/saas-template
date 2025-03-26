@@ -1,10 +1,6 @@
 # SaaS Monorepo Template
 
-> Disclaimer: Cursor generated this readme so it might be horribly fucking wrong
-
 A modern SvelteKit monorepo template with integrated authentication, payment processing, and headless CMS capabilities.
-
-The prod docker files are setup to be deployed on Coolify.
 
 ## What's Included
 
@@ -170,16 +166,14 @@ Each app has Docker setup for local development:
 
 ```bash
 # For the app
-yarn app dev:up         # Start containers
-yarn app dev:down       # Stop containers
-yarn app dev:build      # Build
-yarn app dev:restart    # Rebuild and restart
+yarn app dcu     # Start containers
+yarn app dcd     # Stop containers
+yarn app restart # Rebuild and restart
 
 # For the web
-yarn web dev:up         # Start containers
-yarn web dev:down       # Stop containers
-yarn web dev:build      # Build
-yarn web dev:restart    # Rebuild and restart
+yarn web dcu
+yarn web dcd
+yarn web restart
 ```
 
 ## Deployment

@@ -2,7 +2,7 @@ import { config } from "dotenv";
 
 config();
 
-const websiteEnvKeys = ["APP_URL", "STORYBLOK_ACCESS_TOKEN", "WEBSITE_URL", "ENVIRONMENT"] as const;
+const websiteEnvKeys = ["APP_URL", "STORYBLOK_ACCESS_TOKEN", "WEBSITE_URL", "NODE_ENV"] as const;
 
 type WebsiteEnvKeys = (typeof websiteEnvKeys)[number];
 
@@ -13,7 +13,7 @@ export type WebsiteEnv = {
 export const getWebsiteEnv = (): WebsiteEnv => {
 	const env: WebsiteEnv = {
 		APP_URL: process.env.APP_URL ?? "",
-		ENVIRONMENT: process.env.ENVIRONMENT ?? "",
+		NODE_ENV: process.env.NODE_ENV ?? "",
 		STORYBLOK_ACCESS_TOKEN: process.env.STORYBLOK_ACCESS_TOKEN ?? "",
 		WEBSITE_URL: process.env.WEBSITE_URL ?? ""
 	};

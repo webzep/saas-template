@@ -1,9 +1,7 @@
 import { UserModel } from "@repo/models";
-import type { LayoutServerLoad } from "./$types";
 import { redirect } from "@sveltejs/kit";
+import type { LayoutServerLoad } from "./$types";
 
-// This function is called on every page load so every page has access to
-// the session data. But this is only called on the server side.
 export const load: LayoutServerLoad = async (event) => {
 	const session = await event.locals.auth();
 

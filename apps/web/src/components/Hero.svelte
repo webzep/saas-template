@@ -10,8 +10,8 @@
         Get <span class="text-secondary">hours</span> of your week back
       </h1>
       <p class="hero-subtitle">
-        Automate your social media accounts with SkullTag and focus on what you do
-        best.
+        Automate your social media accounts with SkullTag and focus on what you
+        do best.
       </p>
       <Link href="#pricing" mega variant="primary">🚀 See pricing</Link>
       <p class="hero-guarantee">

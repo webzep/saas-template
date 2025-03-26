@@ -7,7 +7,6 @@
 
   let { dark = false, small = false }: Props = $props()
 
-  const iconSize = small ? "sm" : "md"
   const textSize = small ? "text-sm" : "text-md"
 
   const containerClasses = ["container", textSize].join(" ")
@@ -26,7 +25,6 @@
 <style>
   .icon-container {
     align-items: center;
-    /* background: white; */
     border-radius: var(--radius-field);
     display: flex;
     justify-content: center;

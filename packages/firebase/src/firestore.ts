@@ -14,10 +14,12 @@ const initFirebase = () => {
 
 	if (getApps().length === 0) {
 		try {
+			const privateKey = process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, "\n");
+
 			const config = {
 				credential: cert({
 					clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-					privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+					privateKey,
 					projectId: process.env.FIREBASE_PROJECT_ID
 				}),
 				databaseURL: `https://${process.env.FIREBASE_PROJECT_ID}.firebaseio.com`,
@@ -25,8 +27,14 @@ const initFirebase = () => {
 			};
 
 			initializeApp(config);
+			console.log("Firebase initialized successfully");
 		} catch (error) {
 			console.error("Error initializing Firebase:", error);
+			if (error instanceof Error) {
+				console.error("Error name:", error.name);
+				console.error("Error message:", error.message);
+				console.error("Error stack:", error.stack);
+			}
 			return false;
 		}
 	}
@@ -39,6 +47,7 @@ export const getFirestoreInstance = (): Firestore => {
 	if (_firestore === null) {
 		if (initFirebase()) {
 			_firestore = getFirestore();
+			_firestore.settings({ preferRest: true });
 		} else {
 			throw new Error("Firebase initialization failed");
 		}

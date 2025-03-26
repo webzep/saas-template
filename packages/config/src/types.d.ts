@@ -3,7 +3,7 @@ declare module "$env/static/private" {
 	export const AUTH_GITHUB_ID: string;
 	export const AUTH_GITHUB_SECRET: string;
 	export const AUTH_SECRET: string;
-	export const ENVIRONMENT: string;
+	export const NODE_ENV: string;
 	export const FIREBASE_CLIENT_EMAIL: string;
 	export const FIREBASE_PRIVATE_KEY: string;
 	export const FIREBASE_PROJECT_ID: string;

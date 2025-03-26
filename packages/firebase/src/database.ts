@@ -14,25 +14,36 @@ export enum Collection {
 
 export const db = <T>(collection: Collection) => ({
 	async find(id: string) {
-		const firestore = getFirestoreInstance();
-		const doc = await firestore.collection(collection).doc(id).get();
-		if (!doc.exists) throw new Error("Document not found");
+		try {
+			const firestore = getFirestoreInstance();
+			const doc = await firestore.collection(collection).doc(id).get();
+			if (!doc.exists) return undefined;
 
-		const data = doc.data();
-		if (!data) throw new Error("Document data not found");
+			const data = doc.data();
+			if (!data) return undefined;
 
-		return data as T;
+			return data as T;
+		} catch (error) {
+			console.warn(`Error finding document in ${collection}/${id}:`, error);
+			return undefined;
+		}
 	},
 	async findWhere(field: string, value: string) {
-		const firestore = getFirestoreInstance();
-		const snapshot = await firestore.collection(collection).where(field, "==", value).get();
-		if (snapshot.empty) return [];
+		try {
+			const firestore = getFirestoreInstance();
+			const snapshot = await firestore.collection(collection).where(field, "==", value).get();
+			if (snapshot.empty) return [];
 
-		const data = snapshot.docs.map((doc) => doc.data());
-		return data as T[];
+			const data = snapshot.docs.map((doc) => doc.data());
+			return data as T[];
+		} catch (error) {
+			console.warn(`Error finding documents in ${collection} where ${field} == ${value}:`, error);
+			return [];
+		}
 	},
 	async set<K extends DocumentData>(id: string, data: K) {
 		const firestore = getFirestoreInstance();
+
 		const now = new Date().toISOString();
 		const documentData = {
 			...data,
@@ -40,14 +51,15 @@ export const db = <T>(collection: Collection) => ({
 			updated_at: now
 		};
 
-		await firestore
+		return await firestore
 			.collection(collection)
 			.doc(id)
 			.set(documentData)
 			.catch((error) => {
-				throw new Error(`Error writing document: ${error}`);
-			});
-		return true;
+				console.warn(`Error writing document: ${error}`);
+				return false;
+			})
+			.then(() => true);
 	},
 	async update(id: string, data: DeepPartial<T>) {
 		const firestore = getFirestoreInstance();

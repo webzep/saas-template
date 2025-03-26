@@ -10,10 +10,10 @@ export const getConfig = () => {
 			steveEmail: "steve@mail.skulltag.app"
 		},
 		mode: {
-			dev: process.env.ENVIRONMENT === "development",
-			prod: process.env.ENVIRONMENT === "production",
-			staging: process.env.ENVIRONMENT === "staging",
-			test: process.env.ENVIRONMENT === "test"
+			dev: process.env.NODE_ENV === "development",
+			prod: process.env.NODE_ENV === "production",
+			staging: process.env.NODE_ENV === "staging",
+			test: process.env.NODE_ENV === "test"
 		},
 		social: {
 			facebook: "https://www.facebook.com/skulltag",
